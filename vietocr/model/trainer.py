@@ -166,7 +166,6 @@ class Trainer():
         pred_sents = []
         actual_sents = []
         img_files = []
-	prob=None
         for batch in  self.valid_gen:
             batch = self.batch_to_device(batch)
             if self.beamsearch:
@@ -186,7 +185,7 @@ class Trainer():
             if sample != None and len(pred_sents) > sample:
                 break
 
-        return pred_sents, actual_sents, img_files, prob
+        return pred_sents, actual_sents, img_files, None
 
     def precision(self, sample=None):
 
