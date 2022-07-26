@@ -166,10 +166,9 @@ class Trainer():
         pred_sents = []
         actual_sents = []
         img_files = []
-
+	prob=None
         for batch in  self.valid_gen:
             batch = self.batch_to_device(batch)
-	    prob = None
             if self.beamsearch:
                 translated_sentence = batch_translate_beam_search(batch['img'], self.model)
                 prob = None
